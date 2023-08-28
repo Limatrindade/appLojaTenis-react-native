@@ -1,12 +1,16 @@
 import React from 'react';
 import { View, StyleSheet, SafeAreaView, Image, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native';
 
 import BannerFoto from '../../assets/banner.png';
 
 import Shoes from '../../component/Shoes';
 
 export default function Home() {
+
+ const navigation = useNavigation();
+
  return (
    <SafeAreaView style={styles.container}>
      <View style={styles.header}>
@@ -36,29 +40,29 @@ export default function Home() {
         <Text style={styles.texto}>LANÇAMENTOS</Text>
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          <Shoes img={require('../../assets/1.png')} cost='R$140,90'>
+          <Shoes img={require('../../assets/1.png')} cost='R$140,90' onClick={() => navigation.navigate('Detail')}>
             Nike shox 10
         </Shoes>
-          <Shoes img={require('../../assets/2.png')} cost='R$280,90'>
+          <Shoes img={require('../../assets/2.png')} cost='R$280,90' onClick={() => alert('Clicou')}>
             Nike Downshifter 10
           </Shoes>   
         </View>
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          <Shoes img={require('../../assets/3.png')} cost='R$140,90'>
-            Nike shox 10
+          <Shoes img={require('../../assets/3.png')} cost='R$270,90' onClick={() => alert('Clicou')}>
+            Nike Squidward
         </Shoes>
-          <Shoes img={require('../../assets/4.png')} cost='R$280,90'>
-            Nike Downshifter 10
+          <Shoes img={require('../../assets/4.png')} cost='R$590,90' onClick={() => alert('Clicou')}>
+            Nike Epic React Flyknit
           </Shoes>   
         </View>
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          <Shoes img={require('../../assets/5.png')} cost='R$140,90'>
-            Nike shox 10
+          <Shoes img={require('../../assets/5.png')} cost='R$999,90' onClick={() => alert('Clicou')}>
+            Nike NDMD
         </Shoes>
-          <Shoes img={require('../../assets/6.png')} cost='R$280,90'>
-            Nike Downshifter 10
+          <Shoes img={require('../../assets/6.png')} cost='R$340,90' onClick={() => alert('Clicou')}>
+            Nike FlyForCloud
           </Shoes>   
         </View>
 
