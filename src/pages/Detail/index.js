@@ -2,12 +2,15 @@ import React from 'react';
 import { Text, SafeAreaView, Image, ScrollView, TouchableOpacity, StyleSheet, View } from 'react-native';
 
 import Dot from '../../component/Dot';
+import SizeButton from '../../component/SizeButton';
+import Button from '../../component/Button';
+import Footer from '../../component/Footer';
 
-export default function Detail() {
+export default function Detail({ navigation }) {
 
-//  navigation.setOptions({
-//    headerTitle: 'Nike shox 10' 
-//  })
+ navigation.setOptions({
+   title: 'Nike shox 10' 
+ })
 
  return (
    <SafeAreaView>
@@ -17,7 +20,7 @@ export default function Detail() {
          style={StyleSheet.image}
          resizeMode='cover'
        /> 
-     </ScrollView>
+     
 
      <View>
        <View>
@@ -34,7 +37,38 @@ export default function Detail() {
          <Dot color="#000" />
        </View>
 
+       <View style={{ flexDirection: "row", width: "100%" }}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <SizeButton bgColor="#17181a" color="#FFF" >39</SizeButton>
+          <SizeButton>40</SizeButton>
+          <SizeButton>41</SizeButton>
+          <SizeButton>42</SizeButton>
+        </ScrollView>
+       </View>
+
+       <View style={styles.textContent}>
+        <Text style={styles.textTitle}>
+          Nike shox 10
+        </Text>
+        <Text style={styles.textContent}>
+          O tênis Nike Masculino Shox 10 traz amortecimento e suporte atualizados, para garantir uma corrida estável e confortável. Esse tênis de corrida é confeccionado em material respirável, cabedal em couro sintético.
+        </Text>
+        <Text style={styles.textList}>
+          - Categoria: Amortecimento
+        </Text>
+        <Text style={styles.textList}>
+          - Material: Mesh
+        </Text>
+       </View>
+
+       <Button/>
+
+       <View style={styles.line} />
+
+       <Footer/>
+
      </View>
+    </ScrollView>
    </SafeAreaView>
   );
 }
@@ -56,5 +90,24 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginVertical: "7%",
     marginHorizontal: "3%"
+  },
+  textContent: {
+    fontSize: 16,
+    lineHeight: 25,
+    marginVertical: "2%",
+    paddingHorizontal: "2%"
+  },
+  textTitle: {
+    fontSize: 22,
+    marginVertical: "2%"
+  },
+  textList: {
+    fontSize: 16, 
+    lineHeight: 25
+  },
+  line: {
+    borderWidth: 1,
+    borderBottomColor: "#DDD",
+    marginVertical: "2%"
   }
 })
